@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="url_newsfocus_list">%1$s/top/list</string>
+    <string name="url_newsfocus_detial">%1$s/top/show</string>
+
+</resources>

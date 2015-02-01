@@ -1,0 +1,58 @@
+<resources>
+
+    <string name="app_name">医药帮</string>
+    <string name="action_settings">action_settings</string>
+    <string name="drawer_open">drawer_open</string>
+    <string name="drawer_close">drawer_close</string>
+
+    <string-array name="total_groups">
+        <item>新闻资讯</item>
+        <item>文化知识</item>
+        <item>药品食品</item>
+        <item>医疗中心</item>
+        <item>企业大全</item>
+    </string-array>
+    <string-array name="tianlongbabu">
+        <item>天龙八部</item>
+        <item>射雕英雄传</item>
+        <item>神雕侠侣</item>
+    </string-array>
+    <string-array name="shediaoyingxiongzhuan">
+        <item>天龙八部</item>
+        <item>射雕英雄传</item>
+        <item>神雕侠侣</item>
+        <item>天龙八部</item>
+        <item>射雕英雄传</item>
+        <item>神雕侠侣</item>
+        <item>天龙八部</item>
+    </string-array>
+    <string-array name="shendiaoxialv">
+        <item>天龙八部</item>
+        <item>射雕英雄传</item>
+    </string-array>
+    <string-array name="tianlongbabu_detail">
+        <item>天龙八部天龙八部</item>
+        <item>射雕英雄传天龙八部</item>
+        <item>神雕侠侣天龙八部</item>
+    </string-array>
+    <string-array name="shediaoyingxiongzhuan_detail">
+        <item>天龙八部天龙八部</item>
+        <item>射雕英雄传天龙八部</item>
+        <item>神雕侠侣天龙八部</item>
+        <item>天龙八部天龙八部</item>
+        <item>射雕英雄传天龙八部</item>
+        <item>神雕侠侣天龙八部</item>
+        <item>天龙八部天龙八部</item>
+    </string-array>
+    <string-array name="shendiaoxialv_detail">
+        <item>天龙八部天龙八部</item>
+        <item>射雕英雄传天龙八部</item>
+    </string-array>
+
+    <!-- 新闻聚焦 -->
+    <string name="newsfocus_keywords_str">关键字：</string>
+    <string name="newsfocus_from_str">来源：</string>
+    <!-- 新闻焦点详细页面 -->
+    <string name="newsfocusdetial_load_error">传入参数错误</string>
+
+</resources>
