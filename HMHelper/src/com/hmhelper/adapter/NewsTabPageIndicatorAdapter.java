@@ -1,10 +1,9 @@
 package com.hmhelper.adapter;
 
-import com.hmhelper.fragment.Fragment_newfocus;
-import com.hmhelper.fragment.ItemFragment;
+import com.hmhelper.fragment.Fragment_healthmessage;
+import com.hmhelper.fragment.Fragment_newsfocus;
 import com.hmhelper.setting.Constant;
 
-import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -27,14 +26,14 @@ public class NewsTabPageIndicatorAdapter extends FragmentPagerAdapter {
 		} else {
 			switch (position) {
 			case 0:
-				mFm = Fragment_newfocus.newInstance();
+				mFm = Fragment_newsfocus.newInstance();
+				break;
+
+			case 1:
+				mFm = Fragment_healthmessage.newInstance();
 				break;
 
 			default:
-				mFm = new ItemFragment();
-				Bundle args = new Bundle();
-				args.putString("arg", TITLE[position]);
-				mFm.setArguments(args);
 				break;
 			}
 			Constant.newsCacheFragments.put(position, mFm);

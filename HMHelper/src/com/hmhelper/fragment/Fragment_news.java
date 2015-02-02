@@ -15,8 +15,7 @@ import android.widget.Toast;
 
 public class Fragment_news extends BaseFragment {
 
-	private static final String[] TITLE = new String[] { "新闻焦点", "社会热点",
-			"食品新闻", "疾病快讯", "生活贴士", "医疗新闻", "企业要闻" };
+	private static final String[] TITLE = new String[] { "新闻焦点", "健康资讯" };
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -39,8 +38,9 @@ public class Fragment_news extends BaseFragment {
 
 			@Override
 			public void onPageSelected(int arg0) {
-//				Toast.makeText(getActivity(), TITLE[arg0], Toast.LENGTH_SHORT)
-//						.show();
+				// Toast.makeText(getActivity(), TITLE[arg0],
+				// Toast.LENGTH_SHORT)
+				// .show();
 			}
 
 			@Override

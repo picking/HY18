@@ -5,7 +5,6 @@ import com.gc.materialdesign.views.ProgressBarCircularIndeterminate;
 import com.hmhelper.application.HMaplication;
 import com.hmhelper.entity.NewsFocusDetialCollction;
 import com.hmhelper.recall.BaseRequestRecall;
-import com.hmhelper.setting.Constant;
 import com.hmhelper.utils.AnimationUtil;
 import com.hmhelper.utils.HttpDataUtil;
 import com.hmhelper.utils.StringUtils;

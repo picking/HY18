@@ -8,13 +8,13 @@ import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
 
 import com.alibaba.fastjson.JSON;
-import com.hmhelper.activity.NewsFocusDetialActivity;
+import com.hmhelper.activity.HealthMessageDetialActivity;
 import com.hmhelper.activity.R;
-import com.hmhelper.adapter.NewsFocusAdapter;
+import com.hmhelper.adapter.HealthMessageAdapter;
 import com.hmhelper.async.SimpleTask;
 import com.hmhelper.async.TaskExecutor;
-import com.hmhelper.entity.ListNewsFocus;
-import com.hmhelper.entity.NewsFocusCollection;
+import com.hmhelper.entity.HealthMessageCollection;
+import com.hmhelper.entity.ListHealthMessage;
 import com.hmhelper.recall.BaseRequestRecall;
 import com.hmhelper.setting.CacheSetting;
 import com.hmhelper.setting.Constant;
@@ -35,20 +35,20 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 
-public class Fragment_newfocus extends BaseFragment {
+public class Fragment_healthmessage extends BaseFragment {
 
 	@ViewInject(R.id.pulllv_newsfocus)
 	private PullToRefreshListView pulllv_newsfocus;
 
 	private ListView lview;
-	private NewsFocusAdapter newsfadapter;
-	private ListNewsFocus lFocus = new ListNewsFocus();
+	private HealthMessageAdapter newshadapter;
+	private ListHealthMessage lHmsg = new ListHealthMessage();
 	private List<NameValuePair> parameters;
-	private NewsFocusCollection listcln;
+	private HealthMessageCollection listcln;
 	private Intent intent;
 
-	public static Fragment_newfocus newInstance() {
-		Fragment_newfocus fragment = new Fragment_newfocus();
+	public static Fragment_healthmessage newInstance() {
+		Fragment_healthmessage fragment = new Fragment_healthmessage();
 		return fragment;
 	}
 
@@ -65,23 +65,24 @@ public class Fragment_newfocus extends BaseFragment {
 
 	private void initView() {
 		initPull();
-		String oldnewsFocus = CacheSetting.instance().getAsString("NewsFocus");
+		String oldnewsFocus = CacheSetting.instance().getAsString("HealthMsg");
 		if (StringUtils.isNotEmpty(oldnewsFocus)) {
-			listcln = JSON.parseObject(oldnewsFocus, NewsFocusCollection.class);
-			lFocus.setLnews(listcln.getYi18());
+			listcln = JSON.parseObject(oldnewsFocus,
+					HealthMessageCollection.class);
+			lHmsg.setLhmsg(listcln.getYi18());
 		} else {
 			pulllv_newsfocus.doPullRefreshing(true, 500);
 		}
-		newsfadapter = new NewsFocusAdapter(getApplicationContext(), lFocus);
-		lview.setAdapter(newsfadapter);
+		newshadapter = new HealthMessageAdapter(getApplicationContext(), lHmsg);
+		lview.setAdapter(newshadapter);
 		lview.setOnItemClickListener(new OnItemClickListener() {
 
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
 				intent = new Intent(getApplicationContext(),
-						NewsFocusDetialActivity.class);
-				intent.putExtra("NEWSFOCUSID", lFocus.getLnews().get(position)
+						HealthMessageDetialActivity.class);
+				intent.putExtra("HEALTHMSGID", lHmsg.getLhmsg().get(position)
 						.getId());
 				AnimationUtil.startActivity(getActivity(), intent);
 			}
@@ -145,11 +146,11 @@ public class Fragment_newfocus extends BaseFragment {
 				super.onPreExecute();
 				parameters = new ArrayList<>();
 				if (flag) {
-					lFocus.setPage(1);
+					lHmsg.setPage(1);
 				} else {
-					lFocus.setPage(lFocus.getPage() + 1);
+					lHmsg.setPage(lHmsg.getPage() + 1);
 				}
-				parameters.add(new BasicNameValuePair("page", lFocus.getPage()
+				parameters.add(new BasicNameValuePair("page", lHmsg.getPage()
 						+ ""));
 				parameters.add(new BasicNameValuePair("limit",
 						Constant.limitCount + ""));
@@ -158,7 +159,7 @@ public class Fragment_newfocus extends BaseFragment {
 			@Override
 			protected Map<String, Object> doInBackground() {
 				return HttpDataUtil.executeHttp(getApplicationContext(),
-						parameters, R.string.url_newsfocus_list);
+						parameters, R.string.url_healthmessage_list);
 			}
 
 			@Override
@@ -169,33 +170,33 @@ public class Fragment_newfocus extends BaseFragment {
 					@Override
 					public void resultSuccess(Object msg) {
 						listcln = JSON.parseObject(msg.toString(),
-								NewsFocusCollection.class);
+								HealthMessageCollection.class);
 						if (listcln.getYi18() != null) {
 							if (flag) {
-								lFocus.setLnews(listcln.getYi18());
-								CacheSetting.instance().put("NewsFocus",
+								lHmsg.setLhmsg(listcln.getYi18());
+								CacheSetting.instance().put("HealthMsg",
 										msg.toString());
 							} else {
-								lFocus.getLnews().addAll(listcln.getYi18());
+								lHmsg.getLhmsg().addAll(listcln.getYi18());
 							}
 							if (listcln.getYi18().size() < Constant.limitCount) {
-								lFocus.setHasmore(false);
+								lHmsg.setHasmore(false);
 							} else {
-								lFocus.setHasmore(true);
+								lHmsg.setHasmore(true);
 							}
 						}
-						newsfadapter.notifyDataSetChanged();
+						newshadapter.notifyDataSetChanged();
 					}
 
 					@Override
 					public void resultFailed(Object msg) {
-						lFocus.setPage(lFocus.getPage() - 1);
+						lHmsg.setPage(lHmsg.getPage() - 1);
 						showToast(msg.toString());
 					}
 
 					@Override
 					public void requestFailed(Object msg) {
-						lFocus.setPage(lFocus.getPage() - 1);
+						lHmsg.setPage(lHmsg.getPage() - 1);
 						showToast(msg.toString());
 					}
 				});
@@ -247,7 +248,7 @@ public class Fragment_newfocus extends BaseFragment {
 
 	private void moreset() {
 		pulllv_newsfocus.onPullUpRefreshComplete();
-		if (!lFocus.isHasmore()) {
+		if (!lHmsg.isHasmore()) {
 			pulllv_newsfocus.setHasMoreData(false);
 		}
 	}

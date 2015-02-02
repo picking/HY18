@@ -29,6 +29,9 @@
         <activity
             android:name=".NewsFocusDetialActivity"
             android:theme="@style/ActivityTheme_Light" />
+        <activity
+            android:name=".HealthMessageDetialActivity"
+            android:theme="@style/ActivityTheme_Light" />
     </application>
 
 </manifest>

@@ -55,4 +55,8 @@
     <!-- 新闻焦点详细页面 -->
     <string name="newsfocusdetial_load_error">传入参数错误</string>
 
+    <!-- 健康资讯 -->
+    <string name="healthmsg_tag_str">标签：</string>
+    <string name="healthmsg_rcount_str">浏览次数：</string>
+
 </resources>
