@@ -5,5 +5,9 @@
     <string name="url_newsfocus_detial">%1$s/top/show</string>
     <string name="url_healthmessage_list">%1$s/news/list</string>
     <string name="url_healthmessage_detial">%1$s/news/show</string>
+    <string name="url_healthknowledge_list">%1$s/lore/list</string>
+    <string name="url_healthknowledge_detial">%1$s/lore/show</string>
+    <string name="url_ask_list">%1$s/ask/list</string>
+    <string name="url_ask_detial">%1$s/ask/show</string>
 
 </resources>

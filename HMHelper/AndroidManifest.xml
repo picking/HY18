@@ -32,6 +32,12 @@
         <activity
             android:name=".HealthMessageDetialActivity"
             android:theme="@style/ActivityTheme_Light" />
+        <activity
+            android:name=".HealthKnowledgeDetialActivity"
+            android:theme="@style/ActivityTheme_Light" />
+        <activity
+            android:name=".AnswerDetialActivity"
+            android:theme="@style/ActivityTheme_Light" />
     </application>
 
 </manifest>

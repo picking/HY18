@@ -66,7 +66,7 @@ public class HMaplication extends Application {
 	public SimpleDateFormat OldFormat = new SimpleDateFormat(
 			"MMM dd,yyyy KK:mm:ss aa", Locale.ENGLISH);
 	public SimpleDateFormat NewFormat = new SimpleDateFormat(
-			"yyyy年MM月dd日 HH:mm", Locale.getDefault());
+			"yyyy/MM/dd HH:mm", Locale.getDefault());
 	private static String CachePath = "/storage/sdcard0/Android/data/com.hmhelper.activity/cache";
 	private static String FilePath = "/storage/sdcard0/Android/data/com.hmhelper.activity/files/fs";
 	public String EXCEPTION_PATH = CachePath + "/exception/";

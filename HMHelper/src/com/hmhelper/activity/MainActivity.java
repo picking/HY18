@@ -6,7 +6,7 @@ import java.util.List;
 import com.hmhelper.adapter.DrawerExpandAdapter;
 import com.hmhelper.application.HMaplication;
 import com.hmhelper.entity.Item;
-import com.hmhelper.fragment.Fragment_food;
+import com.hmhelper.fragment.Fragment_cultural;
 import com.hmhelper.fragment.Fragment_news;
 import com.hmhelper.fragment.Fragment_none;
 import com.hmhelper.view.ExpandableListViewForScrollView;
@@ -146,7 +146,7 @@ public class MainActivity extends BaseActivity implements OnChildClickListener {
 			} else if (childPosition == 1) {
 				fmanger = getSupportFragmentManager();
 				trans = fmanger.beginTransaction();
-				frag = new Fragment_food();
+				frag = new Fragment_cultural();
 				trans.replace(R.id.ll_content, frag);
 				trans.commit();
 			} else if (childPosition == 2) {

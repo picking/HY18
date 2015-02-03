@@ -9,6 +9,8 @@ import android.support.v4.app.Fragment;
 public class Constant {
 	// 新闻页面缓存
 	public static Map<Integer, Fragment> newsCacheFragments = new HashMap<Integer, Fragment>();
+	// 文化知识页面缓存
+	public static Map<Integer, Fragment> culturalCacheFragments = new HashMap<Integer, Fragment>();
 
 	// Imageloader相关
 	public static class Config {
