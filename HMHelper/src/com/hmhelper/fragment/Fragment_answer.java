@@ -107,7 +107,6 @@ public class Fragment_answer extends BaseFragment {
 					}
 
 				});
-		pulllv_newsfocus.footerRefreshSetting();
 		lview = pulllv_newsfocus.getRefreshableView();
 		lview.setClipToPadding(false);
 		lview.setDivider(null);
@@ -224,7 +223,7 @@ public class Fragment_answer extends BaseFragment {
 
 	private void refreshset() {
 		pulllv_newsfocus.onPullDownRefreshComplete();
-		pulllv_newsfocus.footerRefreshSetting();
+		pulllv_newsfocus.setHasMoreData(lque.isHasmore());
 	}
 
 	private SimpleTask<?> doneMore() {
@@ -247,8 +246,6 @@ public class Fragment_answer extends BaseFragment {
 
 	private void moreset() {
 		pulllv_newsfocus.onPullUpRefreshComplete();
-		if (!lque.isHasmore()) {
-			pulllv_newsfocus.setHasMoreData(false);
-		}
+		pulllv_newsfocus.setHasMoreData(lque.isHasmore());
 	}
 }

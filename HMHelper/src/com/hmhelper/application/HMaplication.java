@@ -30,15 +30,16 @@ public class HMaplication extends Application {
 	/** 程序活动列表 */
 	private List<Activity> activityList = new ArrayList<Activity>();
 
-	@SuppressWarnings("unused")
 	@Override
 	public void onCreate() {
-		if (Constant.Config.DEVELOPER_MODE
-				&& Build.VERSION.SDK_INT >= Build.VERSION_CODES.GINGERBREAD) {
-			StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder()
-					.detectAll().penaltyDialog().build());
-			StrictMode.setVmPolicy(new StrictMode.VmPolicy.Builder()
-					.detectAll().penaltyDeath().build());
+		if (Constant.Config.DEVELOPER_MODE) {
+			if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.GINGERBREAD) {
+				StrictMode
+						.setThreadPolicy(new StrictMode.ThreadPolicy.Builder()
+								.detectAll().penaltyDialog().build());
+				StrictMode.setVmPolicy(new StrictMode.VmPolicy.Builder()
+						.detectAll().penaltyDeath().build());
+			}
 		}
 		super.onCreate();
 		instance = this;
@@ -50,7 +51,7 @@ public class HMaplication extends Application {
 
 		// 不打印log
 		// LogUtils.allowLog = false;
-
+		
 		CachePath = getApplicationContext().getExternalCacheDir().getPath();
 		FilePath = getApplicationContext().getExternalFilesDir("/fs/")
 				.getPath();

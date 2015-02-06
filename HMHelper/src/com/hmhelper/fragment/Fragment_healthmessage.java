@@ -108,7 +108,6 @@ public class Fragment_healthmessage extends BaseFragment {
 					}
 
 				});
-		pulllv_newsfocus.footerRefreshSetting();
 		lview = pulllv_newsfocus.getRefreshableView();
 		lview.setClipToPadding(false);
 		lview.setDivider(null);
@@ -225,7 +224,7 @@ public class Fragment_healthmessage extends BaseFragment {
 
 	private void refreshset() {
 		pulllv_newsfocus.onPullDownRefreshComplete();
-		pulllv_newsfocus.footerRefreshSetting();
+		pulllv_newsfocus.setHasMoreData(lHmsg.isHasmore());
 	}
 
 	private SimpleTask<?> doneMore() {
@@ -248,8 +247,6 @@ public class Fragment_healthmessage extends BaseFragment {
 
 	private void moreset() {
 		pulllv_newsfocus.onPullUpRefreshComplete();
-		if (!lHmsg.isHasmore()) {
-			pulllv_newsfocus.setHasMoreData(false);
-		}
+		pulllv_newsfocus.setHasMoreData(lHmsg.isHasmore());
 	}
 }
